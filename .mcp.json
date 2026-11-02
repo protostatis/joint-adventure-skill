@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "joint-adventure": {
+      "type": "http",
+      "url": "https://jointadventure.lol/api/mcp"
+    }
+  }
+}

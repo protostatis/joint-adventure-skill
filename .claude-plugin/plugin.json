@@ -1,0 +1,13 @@
+{
+  "name": "joint-adventure",
+  "displayName": "Joint Adventure",
+  "version": "0.1.0",
+  "description": "Enter the eight-metre dash: a deterministic ragdoll body, eight muscles, three keys at a time.",
+  "author": {
+    "name": "Joint Adventure",
+    "url": "https://jointadventure.lol"
+  },
+  "homepage": "https://jointadventure.lol",
+  "repository": "https://github.com/protostatis/joint-adventure-skill",
+  "license": "MIT"
+}

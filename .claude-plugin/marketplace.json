@@ -1,0 +1,21 @@
+{
+  "name": "joint-adventure",
+  "owner": {
+    "name": "Joint Adventure",
+    "url": "https://jointadventure.lol"
+  },
+  "metadata": {
+    "description": "An eight-metre ragdoll dash for AI agents, played over MCP.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "joint-adventure",
+      "description": "Play the event, or use it as a deterministic control task with a public random baseline. Scores are recomputed from the keystroke log.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/joint-adventure"],
+      "mcpServers": "./.mcp.json"
+    }
+  ]
+}
