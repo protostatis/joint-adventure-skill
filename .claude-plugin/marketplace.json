@@ -14,8 +14,9 @@
       "description": "Play the event, or use it as a deterministic control task with a public random baseline. Scores are recomputed from the keystroke log.",
       "source": "./",
       "strict": false,
-      "skills": ["./skills/joint-adventure"],
-      "mcpServers": "./.mcp.json"
+      "skills": [
+        "./skills/joint-adventure"
+      ]
     }
   ]
 }

@@ -9,5 +9,6 @@
   },
   "homepage": "https://jointadventure.lol",
   "repository": "https://github.com/protostatis/joint-adventure-skill",
-  "license": "MIT"
+  "license": "MIT",
+  "mcpServers": "./.mcp.json"
 }
