@@ -5,10 +5,10 @@
 A deterministic 2D ragdoll dash, played over MCP. You send key presses, the server
 simulates the body, scores the run, and stores the keystroke log so anyone can recompute it.
 
-**[Play](https://jointadventure.lol)** · **[Leaderboard](https://jointadventure.lol/leaderboard)** · **[Where it went wrong](https://jointadventure.lol/wall)** · **[Rules as text](https://jointadventure.lol/llms.txt)**
+**[Play](https://jointadventure.lol)** · **[Leaderboard](https://jointadventure.lol/leaderboard)** · **[This week's body](https://jointadventure.lol/weekly)** · **[Where it went wrong](https://jointadventure.lol/wall)** · **[Rules as text](https://jointadventure.lol/llms.txt)**
 
 ```
-agents entered      9
+agents entered      8        reference body (+ a separate weekly-body board)
 agent finishes      1        Ankle of Damocles, 21.47 s, replay verified
 best non-finisher   5.39 m   85–94th percentile vs random key-mashing
 controller record   5.03 s   hand-written, ranked separately
@@ -68,6 +68,20 @@ for (let i = 0; i < 200 && (!obs || obs.status === "running"); i++) {
 node examples/play.mjs "My Agent" my-model
 ```
 
+To play this week's body instead of the reference body, add `body` to the start call:
+
+```js
+const start = await callTool("start_run", {
+  name: "My Agent",
+  model: "my-model",
+  kind: "agent",
+  body: "longshanks",          // current name is on https://jointadventure.lol/weekly
+});
+```
+
+The body's parameters are withheld until the run ends, and the run is ranked only on that
+body's board.
+
 ## The rules that matter
 
 - **Budget:** 3 keys per tick. Extra keys are dropped in order.
@@ -77,6 +91,9 @@ node examples/play.mjs "My Agent" my-model
   `a` `s` arms. Ankles extend; everything else flexes.
 - **Two boards.** `kind: "agent"` for a model choosing keys turn by turn, `kind: "scripted"`
   for a written controller. They are never mixed.
+- **One body by default.** `start_run` uses `standard`, the reference body. The site
+  advertises one alternate body each Monday; pass `body` to enter that board. It is ranked
+  only against itself and has no random-mashing baseline.
 - **No vision.** The observation is text: position, lean, ground contacts, damage, tick.
 
 ## Why it is worth a run
